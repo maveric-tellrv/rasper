@@ -1,9 +1,11 @@
-from flask import Flask, render_template,url_for,request,redirect
+from flask import Flask, render_template,url_for,request,redirect,flash
 from logging import DEBUG
 from datetime import datetime
 
 app = Flask(__name__)
-app.logger.setLevel(DEBUG)
+# app.logger.setLevel(DEBUG)
+
+app.config['SECRET_KEY'] = '\x13R\xa7\x1d\xa3\x96vuQ2\xca\x11\xf4h\xc6,%\xa3-g[D\xda^' 
 
 
 
@@ -24,27 +26,30 @@ def name(*f):
 bookmarks=[]
 
 def store_bookmark(url):
-	bookmarks.append(dict(url=url,user= "Rohit",date = datetime.utcnow()))
+	bookmarks.append(dict(url=url,user="Rohit",date = datetime.utcnow()))
+
+
+  
+def new_bookmarks(num):
+	return sorted(bookmarks, key=lambda kv: kv['date'],reverse=True)[:num]
+
 
 @app.route('/')
 @app.route('/index')
 def index():
-	return render_template('index.html',title="This is the title",
-							user=User("rohit","vyas"))
-    # return 'Hello, World!'1\
-    # print (' inside Hello, World!')
-    #return 'Hello return value'
-    # for key in mydic:
-    #   print "the key name is" + key + "and its value is" + mydic[key]
-    #   return "the key name is" + key + "and its value is" + mydic[key]
-
+	# return render_template('index.html',title="This is the title",
+	# 						user=User("rohit","vyas"))
+	#Do not display more then two recently added books
+	return render_template('index.html',new_bookmarks=new_bookmarks(2))
 
 @app.route('/add',methods=['GET','POST'])
 def add():
 	if request.method == "POST":
 		url = request.form['url']
 		store_bookmark(url)
-		app.logger.debug('store url: '+url)
+		# app.logger.debug('store url: '+url)
+		print("Store url '{}'".format(url))
+		flash("Stored the url: '{}'".format(url))
 		return redirect(url_for('index'))
 	return render_template('add.html')
 
@@ -59,7 +64,7 @@ def page_not_found(e):
 
 
 if __name__ == "__main__":
-    app.run(debug=False)
+    app.run(debug=True)
 
 
 
