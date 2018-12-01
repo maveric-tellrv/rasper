@@ -1,14 +1,14 @@
 {% extends "base.html" %}
 
 {% block title %}
-Thermos -- Bookmarks for user {{ user.username }}
+Rasper -- Servers for user {{ user.username }}
 <!-- Thermos -- Bookmarks for user {{ user }} -->
 {%  endblock %}
 
 {% block content %}
     <article>
         <header>
-             <h1>Bookmarks for {{ user.username }}</h1>
+             <h1>Servers for {{ user.username }}</h1>
 
 
             <ul>
@@ -18,7 +18,7 @@ Thermos -- Bookmarks for user {{ user.username }}
                         <span class="timestamp">Added at {{ bm.date }}</span>
                     </li>
                 {% else %}
-                    <li>This user has not added any bookmarks yet.</li>
+                    <li>This user has not added any server yet.</li>
                 {% endfor %}
             </ul>
         </header>
