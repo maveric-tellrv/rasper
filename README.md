@@ -1,1 +1,1 @@
-This is thermos python flask based project for managing the QE dashboard.
+This is rasper python flask based project for managing the Raspbery Pi dashboard.
