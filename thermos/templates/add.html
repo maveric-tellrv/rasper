@@ -8,12 +8,37 @@ Thermos --Add a url
 {% block content %}
 <section>
 
-	<h2>Add book</h2>
+
+	<h1>Add a new URL</h1>
 
 	<form action="" method="post">
-		<article>
-  	<p>Please enter the book url <br> <input type="text" name="url"> <br></p>
-  	<p><button type="submit">Submit</button> </p>
+		{{ form.hidden_tag() }}
+
+
+	<table>
+			<tr><br>
+				
+				<br><td>{{ form.url.label }} {{ form.url(size=20) }}</td>	
+				<!-- <br><td><input type="text" name="url"></td> -->
+			</br></tr>
+
+
+			<tr>
+				
+				<br><td>{{ form.description.label }} {{ form.description(size=20) }}</td></br>
+			</tr>
+				
+			<tr><td>{{ form.submit }} </td></tr>
+  			<!-- <tr><td><br><button type="submit">Submit</button> </br></td></tr> -->
+
+
+	<!-- <table>
+  	<tr><td>Please enter the book url <br> <input type="text" name="url"> <br></td></tr>
+  	<tr><td><p><button type="submit">Submit</button> </p></td></tr>
+  </table> -->
+
+	</table>
+
   </article>
 	</form>
 </section>

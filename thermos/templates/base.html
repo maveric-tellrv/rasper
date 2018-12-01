@@ -23,12 +23,13 @@
 
         <div class="header-container">
             <header class="wrapper clearfix">
-                <a href="{{ url_for('index') }}"><h1 class="title">Thermos</h1></a>
+                <a href="{{ url_for('index') }}"><h1 class="title">Rasper</h1></a>
                 <nav>
                     <ul>
                         <li><a href=" {{ url_for('add') }}">Add url</a></li>
                         <li><a href="#">Sign up</a></li>
                         <li><a href="#">Sign in</a></li>
+
 
                     </ul>
                 </nav>
@@ -60,8 +61,12 @@
 
                 {% block sidebar %}
                     <aside>
-                        <h3>aside</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sodales urna non odio egestas tempor. Nunc vel vehicula ante. Etiam bibendum iaculis libero, eget molestie nisl pharetra in. In semper consequat est, eu porta velit mollis nec. Curabitur posuere enim eget turpis feugiat tempor. Etiam ullamcorper lorem dapibus velit suscipit ultrices.</p>
+                        <h3>ARM Supported</h3>
+                        <p>
+                            <ul><li> Raspbery pi 1 </li>
+                                <li> Raspbery pi 2 </li>
+                            </ul>
+                        </p>
                     </aside>
                 {% endblock %}
 
@@ -71,7 +76,7 @@
 
         <div class="footer-container">
             <footer class="wrapper">
-                <h3>Thermos By and For Rhcert-QE</h3>
+                <h3>Thermos By and For Raspians</h3>
             </footer>
         </div>
 
